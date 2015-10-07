@@ -16,3 +16,10 @@ $ sudo docker build -t hoopla/postfix .
 ```bash
 $ sudo docker run -d -p 25:25 --name postfix hoopla/postfix
 ```
+## Testing (on ubuntu)
+```
+$ sudo docker run -d -p 25:25 --name postfix hoopla/postfix
+$ sudo apt-get update
+$ sudo apt-get install sendemail
+$ sendemail -f postmaster@hoopla.no -t <recipent>@<host> -u <subject> -m <message> -s localhost:25
+```
